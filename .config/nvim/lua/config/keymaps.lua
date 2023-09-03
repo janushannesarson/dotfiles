@@ -17,6 +17,7 @@ local function map(mode, lhs, rhs, opts)
   end
 end
 
+-- Buffers
 map("n", "q", function()
   require("mini.bufremove").delete(0, false)
 end, { desc = "Remove Buffer" })
@@ -25,4 +26,5 @@ map("n", "Q", function()
   require("mini.bufremove").delete(0, true)
 end, { desc = "Remove Buffer (Force)" })
 
+-- Macros
 map({ "n" }, "m", "q", { desc = "Macro" })
