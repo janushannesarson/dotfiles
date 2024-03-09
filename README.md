@@ -1,9 +1,12 @@
 # dotfiles
+## Prerequisites 
+Install GNU stow CLI tool
+
+## Install
 ```bash
-cd $HOME
-git init
-git remote add origin git@github.com:janushannesarson/dotfiles.git
-git fetch
-git reset --hard origin/main
-git push --set-upstream origin main
+git clone
+```
+
+```
+stow .
 ```
