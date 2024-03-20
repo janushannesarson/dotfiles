@@ -18,7 +18,7 @@ if [[ $# -eq 1 ]]; then
     selected_path=$1
 else
     # If no argument was provided, interactively choose a directory
-    selected_path=$((find ~/Repos -mindepth 1 -maxdepth 1 -type d; echo ~/.config/nvim) | fzf)
+	selected_path=$((find ~/Repos -mindepth 1 -maxdepth 1 -type d; echo ~/.config/nvim; echo ~/dotfiles) | fzf)
 fi
 
 # If no directory was selected, exit the script
