@@ -706,3 +706,7 @@ vim.api.nvim_set_keymap('t', '<esc>', [[<C-\><C-n>]], {})
 
 -- Extra file extensions
 vim.filetype.add({ extension = { templ = "templ" } })
+
+-- stolen from primagen
+vim.keymap.set("v", "<C-j>", ":m '>+1<CR>gv=gv")
+vim.keymap.set("v", "<C-k>", ":m '<-2<CR>gv=gv")
