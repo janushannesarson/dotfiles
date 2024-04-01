@@ -224,7 +224,7 @@ require('lazy').setup({
 	},
 
 	-- "gc" to comment visual regions/lines
-	{ 'numToStr/Comment.nvim', opts = {} },
+	{ 'numToStr/Comment.nvim',  opts = {} },
 
 	-- Fuzzy Finder (files, lsp, etc)
 	{
@@ -343,6 +343,16 @@ vim.api.nvim_create_autocmd('TextYankPost', {
 -- See `:help telescope` and `:help telescope.setup()`
 require('telescope').setup {
 	defaults = {
+		layout_config = {
+			vertical = { width = 0.1 },
+			horizontal = {
+				height = 0.9,
+				preview_cutoff = 120,
+				prompt_position = "bottom",
+				width = 0.6
+			},
+			-- other layout configuration here
+		},
 		mappings = {
 			i = {
 				['<C-u>'] = false,
@@ -410,12 +420,15 @@ local function telescope_live_grep_open_files()
 end
 -- vim.keymap.set('n', '<leader>f/', telescope_live_grep_open_files, { desc = '[F]ind [/] in Open Files' })
 -- vim.keymap.set('n', '<leader>ss', require('telescope.builtin').builtin, { desc = '[S]earch [S]elect Telescope' })
--- vim.keymap.set('n', '<leader>fgf', require('telescope.builtin').git_files, { desc = '[G]it [F]iles' })
-vim.keymap.set('n', '<leader><leader>', require('telescope.builtin').find_files, { desc = '[F]ind [F]iles' })
+-- vim.keymap.set('n', '<leader>g', require('telescope.builtin').git_files, { desc = '[G]it [F]iles' })
+vim.keymap.set('n', '<leader><leader>', require('telescope.builtin').find_files, { desc = '[F]ind [f]iles' })
+-- vim.keymap.set('n', '<leader>F', function()
+-- 	require('telescope.builtin').find_files({ hidden = true })
+-- end, { desc = '[F]ind Hidden [F]iles' })
 vim.keymap.set('n', '<leader>s', require('telescope.builtin').git_status, { desc = '[G]it [S]tatus' })
-vim.keymap.set('n', '<leader>fh', require('telescope.builtin').help_tags, { desc = '[F]ind [H]elp' })
-vim.keymap.set('n', '<leader>fw', require('telescope.builtin').grep_string, { desc = '[F]ind current [W]ord' })
-vim.keymap.set('n', '<leader>fg', require('telescope.builtin').live_grep, { desc = '[F]ind by [G]rep' })
+-- vim.keymap.set('n', '<leader>fh', require('telescope.builtin').help_tags, { desc = '[F]ind [H]elp' })
+-- vim.keymap.set('n', '<leader>fw',require('telescope.builtin').grep_string, { desc = '[F]ind current [W]ord' })
+vim.keymap.set('n', '<leader>g', require('telescope.builtin').live_grep, { desc = '[F]ind by [G]rep' })
 -- vim.keymap.set('n', '<leader>sG', ':LiveGrepGitRoot<cr>', { desc = '[S]earch by [G]rep on Git Root' })
 -- vim.keymap.set('n', '<leader>sd', require('telescope.builtin').diagnostics, { desc = '[S]earch [D]iagnostics' })
 -- vim.keymap.set('n', '<leader>sr', require('telescope.builtin').resume, { desc = '[S]earch [R]esume' })
