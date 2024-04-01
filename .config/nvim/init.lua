@@ -421,14 +421,11 @@ end
 -- vim.keymap.set('n', '<leader>f/', telescope_live_grep_open_files, { desc = '[F]ind [/] in Open Files' })
 -- vim.keymap.set('n', '<leader>ss', require('telescope.builtin').builtin, { desc = '[S]earch [S]elect Telescope' })
 -- vim.keymap.set('n', '<leader>g', require('telescope.builtin').git_files, { desc = '[G]it [F]iles' })
-vim.keymap.set('n', '<leader><leader>', require('telescope.builtin').find_files, { desc = '[F]ind [f]iles' })
 -- vim.keymap.set('n', '<leader>F', function()
 -- 	require('telescope.builtin').find_files({ hidden = true })
 -- end, { desc = '[F]ind Hidden [F]iles' })
-vim.keymap.set('n', '<leader>s', require('telescope.builtin').git_status, { desc = '[G]it [S]tatus' })
 -- vim.keymap.set('n', '<leader>fh', require('telescope.builtin').help_tags, { desc = '[F]ind [H]elp' })
 -- vim.keymap.set('n', '<leader>fw',require('telescope.builtin').grep_string, { desc = '[F]ind current [W]ord' })
-vim.keymap.set('n', '<leader>g', require('telescope.builtin').live_grep, { desc = '[F]ind by [G]rep' })
 -- vim.keymap.set('n', '<leader>sG', ':LiveGrepGitRoot<cr>', { desc = '[S]earch by [G]rep on Git Root' })
 -- vim.keymap.set('n', '<leader>sd', require('telescope.builtin').diagnostics, { desc = '[S]earch [D]iagnostics' })
 -- vim.keymap.set('n', '<leader>sr', require('telescope.builtin').resume, { desc = '[S]earch [R]esume' })
@@ -539,7 +536,6 @@ local on_attach = function(_, bufnr)
 
 	-- See `:help K` for why this keymap
 	nmap('<leader>d', vim.lsp.buf.hover, 'Hover Documentation')
-	nmap('<C-k>', vim.lsp.buf.signature_help, 'Signature Documentation')
 	imap('<C-k>', vim.lsp.buf.signature_help, 'Signature Documentation')
 
 	--  used LSP functionality
@@ -688,18 +684,9 @@ cmp.setup {
 -- vim: ts=2 sts=2 sw=2 et
 
 -- Set color column to 80 in Neovim's init.lua using vim.cmd
-vim.cmd('set colorcolumn=80')
+vim.cmd('set colorcolumn=100')
 vim.cmd('set tabstop=4')
 vim.cmd('set shiftwidth=4')
-vim.api.nvim_set_keymap('n', '<C-u>', '<C-u>zz', { noremap = true, silent = true, desc = "Half page up" })
-vim.api.nvim_set_keymap('n', '<C-d>', '<C-d>zz', { noremap = true, silent = true, desc = "Half page down" })
-
--- Navigate between windows using Ctrl-h/j/k/l
-vim.api.nvim_set_keymap('n', '<C-h>', '<C-w>h', { noremap = true, silent = true })
-vim.api.nvim_set_keymap('n', '<C-j>', '<C-w>j', { noremap = true, silent = true })
-vim.api.nvim_set_keymap('n', '<C-k>', '<C-w>k', { noremap = true, silent = true })
-vim.api.nvim_set_keymap('n', '<C-l>', '<C-w>l', { noremap = true, silent = true })
-
 
 -- Terminal
 vim.api.nvim_set_keymap('t', '<esc>', [[<C-\><C-n>]], {})
@@ -707,6 +694,4 @@ vim.api.nvim_set_keymap('t', '<esc>', [[<C-\><C-n>]], {})
 -- Extra file extensions
 vim.filetype.add({ extension = { templ = "templ" } })
 
--- stolen from primagen
-vim.keymap.set("v", "<C-j>", ":m '>+1<CR>gv=gv")
-vim.keymap.set("v", "<C-k>", ":m '<-2<CR>gv=gv")
+require("remap")
