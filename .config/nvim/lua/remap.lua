@@ -1,7 +1,7 @@
 -- <leader>
 vim.keymap.set('n', '<leader>f', require('telescope.builtin').find_files, { desc = '[F]ind [f]iles' })
-vim.keymap.set('n', '<leader>g', require('telescope.builtin').live_grep, { desc = '[F]ind by [G]rep' })
-vim.keymap.set('n', '<leader>gs', require('telescope.builtin').git_status, { desc = '[G]it [S]tatus' })
+vim.keymap.set('n', '<leader>F', require('telescope.builtin').live_grep, { desc = '[F]ind by [G]rep' })
+vim.keymap.set('n', '<leader>gs', require('telescope.builtin').git_files, { desc = '[G]it [S]tatus' })
 
 
 -- Navigate between windows using Ctrl-h/j/k/l
