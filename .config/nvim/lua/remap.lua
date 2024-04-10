@@ -19,6 +19,11 @@ vim.keymap.set("v", "<C-k>", ":m '<-2<CR>gv=gv")
 vim.api.nvim_set_keymap('n', '<C-u>', '<C-u>zz', { noremap = true, silent = true, desc = "Half page up" })
 vim.api.nvim_set_keymap('n', '<C-d>', '<C-d>zz', { noremap = true, silent = true, desc = "Half page down" })
 
+-- debug
+vim.keymap.set('n', '<leader>dd', require('dapui').toggle, { desc = '[D]ebug' })
+vim.keymap.set('n', '<leader>db', require('dap').toggle_breakpoint, { desc = '[D]ebug [B]reak' })
+vim.keymap.set('n', '<leader>ds', require('dap').step_over, { desc = '[D]ebug [S]tep' })
+vim.keymap.set('n', '<leader>di', require('dap').step_into, { desc = '[D]ebug Step [I]nto' })
 
 vim.keymap.set("n", "n", "nzz")
 vim.keymap.set("n", "N", "nzz")
