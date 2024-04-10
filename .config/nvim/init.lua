@@ -360,6 +360,11 @@ require('telescope').setup {
 			},
 		},
 	},
+	pickers = {
+		find_files = {
+			theme = "dropdown",
+		}
+	},
 }
 
 -- Enable telescope fzf native, if installed
@@ -488,12 +493,12 @@ vim.defer_fn(function()
 			},
 			swap = {
 				enable = true,
-				swap_next = {
-					['<leader>a'] = '@parameter.inner',
-				},
-				swap_previous = {
-					['<leader>A'] = '@parameter.inner',
-				},
+				-- swap_next = {
+				-- 	['<leader>a'] = '@parameter.inner',
+				-- },
+				-- swap_previous = {
+				-- 	['<leader>A'] = '@parameter.inner',
+				-- },
 			},
 		},
 	}
@@ -524,7 +529,7 @@ local on_attach = function(_, bufnr)
 		vim.keymap.set('i', keys, func, { buffer = bufnr, desc = desc })
 	end
 
-	nmap('<leader>crn', vim.lsp.buf.rename, '[C]ode [R]e[n]ame')
+	nmap('<leader>cr', vim.lsp.buf.rename, '[C]ode [R]e[n]ame')
 	nmap('<leader>ca', vim.lsp.buf.code_action, '[C]ode [A]ction')
 
 	nmap('gd', require('telescope.builtin').lsp_definitions, '[G]oto [D]efinition')
@@ -686,11 +691,13 @@ cmp.setup {
 vim.cmd('set colorcolumn=100')
 vim.cmd('set tabstop=4')
 vim.cmd('set shiftwidth=4')
+vim.cmd('set relativenumber')
 
 -- Terminal
 vim.api.nvim_set_keymap('t', '<esc>', [[<C-\><C-n>]], {})
 
 -- Extra file extensions
 vim.filetype.add({ extension = { templ = "templ" } })
+
 
 require("remap")
