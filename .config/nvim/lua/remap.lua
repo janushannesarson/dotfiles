@@ -7,9 +7,6 @@ end, { desc = '[F]ind Hidden' })
 vim.keymap.set('n', '<leader>fg', require('telescope.builtin').live_grep, { desc = '[F]ind by Grep' })
 vim.keymap.set('n', '<leader>gs', require('telescope.builtin').git_status, { desc = '[G]it [S]tatus' })
 
--- File tree
-vim.keymap.set('n', '<leader>e', require("nvim-tree.api").tree.toggle, {})
-
 -- Navigate between windows using Ctrl-h/j/k/l
 vim.api.nvim_set_keymap('n', '<C-h>', '<C-w>h', { noremap = true, silent = true })
 vim.api.nvim_set_keymap('n', '<C-j>', '<C-w>j', { noremap = true, silent = true })
