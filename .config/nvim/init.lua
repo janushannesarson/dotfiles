@@ -175,9 +175,6 @@ require('lazy').setup({
 				map('n', '<leader>hu', gs.undo_stage_hunk, { desc = 'undo stage hunk' })
 				map('n', '<leader>hR', gs.reset_buffer, { desc = 'git Reset buffer' })
 				map('n', '<leader>hp', gs.preview_hunk, { desc = 'preview git hunk' })
-				map('n', '<leader>hb', function()
-					gs.blame_line { full = false }
-				end, { desc = 'git blame line' })
 				map('n', '<leader>hd', gs.diffthis, { desc = 'git diff against index' })
 				map('n', '<leader>hD', function()
 					gs.diffthis '~'
@@ -565,7 +562,6 @@ require('which-key').register {
 	['<leader>f'] = { name = '[F]ind', _ = 'which_key_ignore' },
 	['<leader>g'] = { name = '[G]it', _ = 'which_key_ignore' },
 	['<leader>h'] = { name = '[H]unk', _ = 'which_key_ignore' },
-	['<leader>t'] = { name = '[T]oggle', _ = 'which_key_ignore' },
 }
 -- register which-key VISUAL mode
 -- required for visual <leader>hs (hunk stage) to work
