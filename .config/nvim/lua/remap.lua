@@ -29,4 +29,4 @@ vim.keymap.set('n', '<leader>ds', require('dap').step_over, { desc = '[D]ebug [S
 vim.keymap.set('n', '<leader>di', require('dap').step_into, { desc = '[D]ebug Step [I]nto' })
 
 vim.keymap.set("n", "n", "nzz")
-vim.keymap.set("n", "N", "nzz")
+vim.keymap.set("n", "N", "Nzz")
