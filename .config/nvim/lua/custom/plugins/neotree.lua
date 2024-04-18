@@ -17,13 +17,6 @@ return {
 			desc = "Explorer NeoTree (cwd)",
 		},
 		{
-			"<leader>ge",
-			function()
-				require("neo-tree.command").execute({ source = "git_status", toggle = true, position = 'left' })
-			end,
-			desc = "Git Explorer NeoTree (cwd)",
-		},
-		{
 			"<leader>be",
 			function()
 				require("neo-tree.command").execute({ source = "buffers", toggle = true, position = 'left' })
