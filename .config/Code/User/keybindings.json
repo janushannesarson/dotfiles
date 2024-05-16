@@ -1,0 +1,85 @@
+// Place your key bindings in this file to override the defaults
+[
+  // NAVIGATION
+  {
+    "key": "ctrl+j",
+    "command": "workbench.action.terminal.focusNext",
+    "when": "terminalFocus"
+  },
+  {
+    "key": "ctrl+k",
+    "command": "workbench.action.terminal.focusPrevious",
+    "when": "terminalFocus"
+  },
+  {
+    "key": "ctrl+t",
+    "command": "workbench.action.togglePanel"
+  },
+  {
+    "key": "ctrl+n",
+    "command": "workbench.action.terminal.new",
+    "when": "terminalFocus"
+  },
+  {
+    "key": "ctrl+shift+q",
+    "command": "workbench.action.terminal.kill",
+    "when": "terminalFocus"
+  },
+  // FILE TREE
+  {
+    "command": "workbench.action.toggleSidebarVisibility",
+    "key": "ctrl+e"
+  },
+  {
+    "command": "workbench.files.action.focusFilesExplorer",
+    "key": "ctrl+e",
+    "when": "editorTextFocus"
+  },
+  {
+    "key": "n",
+    "command": "explorer.newFile",
+    "when": "filesExplorerFocus && !inputFocus"
+  },
+  {
+    "command": "renameFile",
+    "key": "r",
+    "when": "filesExplorerFocus && !inputFocus"
+  },
+  {
+    "key": "shift+n",
+    "command": "explorer.newFolder",
+    "when": "explorerViewletFocus"
+  },
+  {
+    "command": "deleteFile",
+    "key": "d",
+    "when": "filesExplorerFocus && !inputFocus"
+  },
+  // Search
+  {
+    "command": "workbench.action.quickOpen",
+    "key": "ctrl+p",
+  },
+  // EXTRA
+  {
+    "key": "ctrl+shift+5",
+    "command": "editor.emmet.action.matchTag"
+  },
+  {
+    "key": "ctrl+z",
+    "command": "workbench.action.toggleZenMode"
+  },
+  {
+    "key": "ctrl+v",
+    "command": "-editor.action.clipboardPasteAction"
+  },
+  {
+    "key": "ctrl+shift+n",
+    "command": "-workbench.action.newWindow"
+  },
+  {
+    "key": "f2",
+    "command": "-editor.action.rename",
+    "when": "editorHasRenameProvider && editorTextFocus && !editorReadonly"
+  }
+]

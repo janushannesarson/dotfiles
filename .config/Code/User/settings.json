@@ -1,0 +1,140 @@
+{
+  "editor.inlayHints.enabled": "off",
+  "editor.formatOnSave": false,
+  "editor.suggest.insertMode": "replace",
+  "editor.fontFamily": "JetBrains Mono",
+  "editor.fontSize": 13,
+  "editor.fontLigatures": true,
+  "terminal.integrated.fontFamily": "MesloLGS NF",
+  "terminal.integrated.scrollback": 100000,
+  "editor.linkedEditing": true,
+  "javascript.updateImportsOnFileMove.enabled": "always",
+  "window.zoomLevel": 0.5,
+  "launch": {},
+  "[json]": {},
+  "workbench.statusBar.visible": true,
+  "editor.minimap.enabled": false,
+  "update.showReleaseNotes": false,
+  "zenMode.hideLineNumbers": false,
+  "zenMode.hideStatusBar": false,
+  "editor.lineNumbers": "relative",
+  "workbench.panel.opensMaximized": "always",
+
+  "vim.leader": "<Space>",
+  "vim.useSystemClipboard": true,
+  "vim.highlightedyank.enable": true,
+  "vim.highlightedyank.color": "rgba(255, 255, 0, 0.5)",
+  "vim.hlsearch": true,
+  "vim.visualModeKeyBindingsNonRecursive": [
+      {
+          "before": [
+              "p",
+          ],
+          "after": [
+              "p",
+              "g",
+              "v",
+              "y"
+          ]
+      }
+  ],
+  "vim.normalModeKeyBindingsNonRecursive": [
+    // NAVIGATION
+    // switch b/w buffers
+    { "before": ["<S-h>"], "commands": [":bprevious"] },
+    { "before": ["<S-l>"], "commands": [":bnext"] },
+
+    // splits
+    { "before": ["leader", "v"], "commands": [":vsplit"] },
+    { "before": ["leader", "s"], "commands": [":split"] },
+
+    // panes
+    {
+      "before": ["<C-h>"],
+      "commands": ["workbench.action.focusLeftGroup"]
+    },
+    {
+      "before": ["<C-j>"],
+      "commands": ["workbench.action.focusBelowGroup"]
+    },
+    {
+      "before": ["<C-k>"],
+      "commands": ["workbench.action.focusAboveGroup"]
+    },
+    {
+      "before": ["<C-l>"],
+      "commands": ["workbench.action.focusRightGroup"]
+    },
+    // NICE TO HAVE
+    { "before": ["leader", "w"], "commands": [":w!"] },
+    { "before": ["leader", "q"], "commands": [":q!"] },
+    { "before": ["leader", "x"], "commands": [":x!"] },
+
+    {
+      "before": ["[", "d"],
+      "commands": ["editor.action.marker.prev"]
+    },
+    {
+      "before": ["]", "d"],
+      "commands": ["editor.action.marker.next"]
+    },
+    // Git
+    {
+      "before": ["leader", "h", "p"],
+      "commands": ["git.openChange"]
+    },
+    {
+      "before": ["leader", "h", "r"],
+      "commands": ["git.revertSelectedRanges"]
+    },
+    {
+      "before": ["[", "c"],
+      "commands": ["editor.action.dirtydiff.previous"]
+    },
+    {
+      "before": ["]", "c"],
+      "commands": ["editor.action.dirtydiff.next"]
+    },
+    {
+      "before": ["<leader>", "c", "a"],
+      "commands": ["editor.action.quickFix"]
+    },
+    {
+      "before": ["<leader>", "c", "r"],
+      "commands": ["editor.action.rename"]
+    },
+    {
+      "before": ["g", "h"],
+      "commands": ["editor.action.showDefinitionPreviewHover"]
+    },
+    // Testing
+    {
+      "before": ["leader", "t", "c"],
+      "commands": ["testing.runAtCursor"]
+    },
+
+  ],
+  "vim.visualModeKeyBindings": [
+    // Stay in visual mode while indenting
+    { "before": ["<"], "commands": ["editor.action.outdentLines"] },
+    { "before": [">"], "commands": ["editor.action.indentLines"] },
+    // Move selected lines while staying in visual mode
+    { "before": ["<C-j>"], "commands": ["editor.action.moveLinesDownAction"] },
+    { "before": ["<C-k>"], "commands": ["editor.action.moveLinesUpAction"] },
+  ],
+  "[typescriptreact]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "go.toolsManagement.autoUpdate": true,
+  "[typescript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[jsonc]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "workbench.iconTheme": "material-icon-theme",
+  "editor.stickyScroll.enabled": false,
+  "editor.cursorSurroundingLines": 10,
+  "workbench.colorTheme": "Theme",
+  "workbench.activityBar.location": "hidden"
+}
