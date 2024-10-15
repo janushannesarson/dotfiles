@@ -7,6 +7,10 @@ return {
 	-- 	default_file_explorer = true,
 	-- 	-- win_options = {
 	-- 	-- 	signcolumn = "number",
+	--
+	--
+	--
+	--
 	-- 	-- },
 	-- 	keymaps = {
 	-- 		["<C-t>"] = false,

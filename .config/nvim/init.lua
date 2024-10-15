@@ -1,12 +1,3 @@
-vim.g.mapleader = ' '
-vim.g.maplocalleader = ' '
-vim.g.have_nerd_font = true
-vim.opt.number = true
-vim.opt.relativenumber = true
-vim.opt.completeopt = { "menu" }
-vim.opt.shiftwidth = 4
-vim.opt.tabstop = 4
-
 -- Bootstrap lazy.nvim
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 if not (vim.uv or vim.loop).fs_stat(lazypath) then
@@ -26,26 +17,17 @@ vim.opt.rtp:prepend(lazypath)
 
 -- Make sure to setup `mapleader` and `maplocalleader` before
 -- loading lazy.nvim so that mappings are correct.
--- This is also a good place to setup other settings (vim.opt)
-vim.g.mapleader = " "
-vim.g.maplocalleader = " "
+vim.g.mapleader = ' '
+vim.g.maplocalleader = ' '
+vim.g.have_nerd_font = true
+vim.opt.number = true
+vim.opt.relativenumber = true
+vim.opt.completeopt = { "menu" }
+vim.opt.shiftwidth = 4
+vim.opt.tabstop = 4
 
-
--- Setup lazy.nvim
 require("lazy").setup({
 	spec = {
-		{
-			'hrsh7th/nvim-cmp',
-			dependencies = {
-				'hrsh7th/cmp-nvim-lsp', -- LSP source for nvim-cmp
-				'hrsh7th/cmp-buffer', -- Buffer completions
-				'hrsh7th/cmp-path', -- Path completions
-				'hrsh7th/cmp-cmdline', -- Cmdline completions
-				'hrsh7th/cmp-vsnip', -- Snippet completions
-				'hrsh7th/vim-vsnip', -- Snippet engine
-			}
-		},
-		{ "ellisonleao/gruvbox.nvim", priority = 1000, config = true, opts = {} },
 		{
 			-- `lazydev` configures Lua LSP for your Neovim config, runtime and plugins
 			-- used for completion, annotations and signatures of Neovim apis
@@ -58,31 +40,13 @@ require("lazy").setup({
 				},
 			},
 		},
+		{ 'projekt0n/github-nvim-theme', name = 'github-theme' },
 		{ import = "plugins" },
 	},
-	-- Configure any other settings here. See the documentation for more details.
-	-- colorscheme that will be used when installing plugins.
-	-- automatically check for plugin updates
 	checker = { enabled = true },
 })
 
--- Enable completion triggered by <c-space>
-local cmp = require('cmp')
-cmp.setup({
-	mapping = {
-		['<C-j>'] = cmp.mapping.select_next_item({ behavior = cmp.SelectBehavior.Select }),
-		['<C-k>'] = cmp.mapping.select_prev_item({ behavior = cmp.SelectBehavior.Select }),
-		['<C-Space>'] = cmp.mapping.complete(),
-		['<C-e>'] = cmp.mapping.close(),
-		['<CR>'] = cmp.mapping.confirm({ select = true }), -- Accept currently selected item
-	},
-	sources = {
-		{ name = 'nvim_lsp' },
-		{ name = 'buffer' },
-		{ name = 'path' },
-	},
-})
-
+-- LSP Configuration
 local capabilities = require("cmp_nvim_lsp").default_capabilities()
 
 local lspconfig = require('lspconfig')
@@ -95,8 +59,6 @@ lspconfig.lua_ls.setup {
 	cmd = { "lua-language-server" },
 }
 
-vim.o.background = "dark" -- or "light" for light mode
-vim.cmd([[colorscheme gruvbox]])
 
 -- keybindings
 -- Navigate between windows using Ctrl-h/j/k/l
@@ -109,7 +71,6 @@ vim.api.nvim_set_keymap('n', '<C-l>', '<C-w>l', { noremap = true, silent = true 
 vim.keymap.set("n", "<S-h>", ":bprev<CR>")
 vim.keymap.set("n", "<S-l>", ":bnext<CR>")
 
--- stolen from primagen
 vim.keymap.set("v", "<C-j>", ":m '>+1<CR>gv=gv")
 vim.keymap.set("v", "<C-k>", ":m '<-2<CR>gv=gv")
 
@@ -128,3 +89,7 @@ vim.api.nvim_set_keymap('n', '<C-d>', '<C-d>zz', { noremap = true, silent = true
 
 vim.keymap.set("n", "n", "nzz")
 vim.keymap.set("n", "N", "Nzz")
+
+vim.cmd([[colorscheme github_dark]])
+vim.cmd([[highlight! link SignColumn Normal]])
+vim.cmd([[:tnoremap <Esc> <C-\><C-n>]])
