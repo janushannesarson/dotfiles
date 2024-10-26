@@ -1,17 +1,16 @@
 // If you'd like to override the default keybindings completely, be sure to change "keybinds" to "keybinds clear-defaults=true"
-layout {
-    pane {
-        plugin location="zellij:status-bar"
+keybinds {
+    shared_except "session" {
+        bind "Ctrl f" {
+			Detach;
+        }
     }
-}
-keybinds clear-defaults=true {
     normal {
         // uncomment this and adjust key if using copy_on_select=false
         // bind "Alt c" { Copy; }
     }
     locked {
         bind "Ctrl g" { SwitchToMode "Normal"; }
-        bind "Ctrl q" { Detach; }
     }
     resize {
         bind "Ctrl n" { SwitchToMode "Normal"; }
@@ -120,7 +119,7 @@ keybinds clear-defaults=true {
         bind "Ctrl s" { SwitchToMode "Scroll"; }
         bind "d" { Detach; }
         bind "w" {
-            LaunchOrFocusPlugin "zellij:session-manager" {
+            LaunchOrFocusPlugin "session-manager" {
                 floating true
                 move_to_focused_tab true
             };
@@ -152,9 +151,10 @@ keybinds clear-defaults=true {
     }
     shared_except "locked" {
         bind "Ctrl g" { SwitchToMode "Locked"; }
-        bind "Ctrl q" { Detach; }
-        bind "Ctrl Q" { Quit; }
+        bind "Ctrl q" { Quit; }
         bind "Alt n" { NewPane; }
+        bind "Alt i" { MoveTab "Left"; }
+        bind "Alt o" { MoveTab "Right"; }
         bind "Alt h" "Alt Left" { MoveFocusOrTab "Left"; }
         bind "Alt l" "Alt Right" { MoveFocusOrTab "Right"; }
         bind "Alt j" "Alt Down" { MoveFocus "Down"; }
@@ -191,11 +191,17 @@ keybinds clear-defaults=true {
 }
 
 plugins {
-    tab-bar { path "tab-bar"; }
-    status-bar { path "status-bar"; }
-    strider { path "strider"; }
-    compact-bar { path "compact-bar"; }
-    session-manager { path "session-manager"; }
+    tab-bar location="zellij:tab-bar"
+    status-bar location="zellij:status-bar"
+    strider location="zellij:strider"
+    compact-bar location="zellij:compact-bar"
+    session-manager location="zellij:session-manager"
+    welcome-screen location="zellij:session-manager" {
+        welcome_screen true
+    }
+    filepicker location="zellij:strider" {
+        cwd "/"
+    }
 }
 
 // Choose what to do when zellij receives SIGTERM, SIGINT, SIGQUIT or SIGHUP
@@ -227,7 +233,7 @@ plugins {
 //   - true (default)
 //   - false
 //
-pane_frames false
+// pane_frames true
 
 // Toggle between having Zellij lay out panes according to a predefined set of layouts whenever possible
 // Options:
@@ -288,7 +294,7 @@ pane_frames false
 // Choose the mode that zellij uses when starting up.
 // Default: normal
 //
-default_mode "locked"
+// default_mode "locked"
 
 // Toggle enabling the mouse mode.
 // On certain configurations, or terminals this could
@@ -356,3 +362,9 @@ default_mode "locked"
 // Default: true
 //
 // styled_underlines false
+
+// Enable or disable writing of session metadata to disk (if disabled, other sessions might not know
+// metadata info on this session)
+// Default: false
+//
+// disable_session_metadata true

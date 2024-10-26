@@ -1,4 +1,3 @@
--- Bootstrap lazy.nvim
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 if not (vim.uv or vim.loop).fs_stat(lazypath) then
 	local lazyrepo = "https://github.com/folke/lazy.nvim.git"
@@ -58,7 +57,21 @@ lspconfig.lua_ls.setup {
 	capabilities = capabilities,
 	cmd = { "lua-language-server" },
 }
-
+lspconfig.html.setup {
+	capabilities = capabilities,
+}
+-- lspconfig.emmet_ls.setup {
+-- 	capabilities = capabilities,
+-- 	filetypes = { "css", "eruby", "html", "javascript", "javascriptreact", "less", "sass", "scss", "svelte", "pug", "typescriptreact", "vue" },
+-- 	init_options = {
+-- 		html = {
+-- 			options = {
+-- 				-- For possible options, see: https://github.com/emmetio/emmet/blob/master/src/config.ts#L79-L267
+-- 				["bem.enabled"] = true,
+-- 			},
+-- 		},
+-- 	}
+-- }
 
 -- keybindings
 -- Navigate between windows using Ctrl-h/j/k/l
@@ -66,10 +79,23 @@ vim.api.nvim_set_keymap('n', '<C-h>', '<C-w>h', { noremap = true, silent = true 
 vim.api.nvim_set_keymap('n', '<C-j>', '<C-w>j', { noremap = true, silent = true })
 vim.api.nvim_set_keymap('n', '<C-k>', '<C-w>k', { noremap = true, silent = true })
 vim.api.nvim_set_keymap('n', '<C-l>', '<C-w>l', { noremap = true, silent = true })
+-- local function move_right_if_exists()
+-- 	local curr_win = vim.api.nvim_get_current_win()
+-- 	vim.cmd('wincmd l')
+-- 	local new_win = vim.api.nvim_get_current_win()
+--
+-- 	if curr_win == new_win then
+-- 		vim.cmd("!zellij action move-focus-or-tab right")
+-- 		vim.cmd('redraw!')
+-- 	end
+-- end
+-- vim.keymap.set('n', '<C-l>', move_right_if_exists, { noremap = true, silent = true })
+
 
 -- Buffers
 vim.keymap.set("n", "<S-h>", ":bprev<CR>")
 vim.keymap.set("n", "<S-l>", ":bnext<CR>")
+vim.keymap.set("n", "<leader>q", ":bd<CR>")
 
 vim.keymap.set("v", "<C-j>", ":m '>+1<CR>gv=gv")
 vim.keymap.set("v", "<C-k>", ":m '<-2<CR>gv=gv")
@@ -90,6 +116,24 @@ vim.api.nvim_set_keymap('n', '<C-d>', '<C-d>zz', { noremap = true, silent = true
 vim.keymap.set("n", "n", "nzz")
 vim.keymap.set("n", "N", "Nzz")
 
+
+require('github-theme').setup({
+	options = {
+		darken = {
+			floats = false,
+		},
+	}
+})
+
 vim.cmd([[colorscheme github_dark]])
 vim.cmd([[highlight! link SignColumn Normal]])
 vim.cmd([[:tnoremap <Esc> <C-\><C-n>]])
+vim.cmd([[set clipboard+=unnamedplus]])
+
+local lsp = vim.lsp
+lsp.handlers["textDocument/hover"] = lsp.with(vim.lsp.handlers.hover, {
+	border = "single",
+})
+lsp.handlers["textDocument/signature"] = lsp.with(vim.lsp.handlers.signature_help, {
+	border = "single",
+})

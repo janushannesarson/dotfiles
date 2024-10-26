@@ -14,6 +14,7 @@ return {
 				{ name = 'nvim_lsp' },
 				{ name = 'buffer' },
 				{ name = 'path' },
+				{ name = 'luasnip' },
 			},
 		})
 	end,
@@ -24,5 +25,6 @@ return {
 		'hrsh7th/cmp-cmdline', -- Cmdline completions
 		'hrsh7th/cmp-vsnip', -- Snippet completions
 		'hrsh7th/vim-vsnip', -- Snippet engine
+		'l3MON4d3/LuaSnip'
 	},
 }
