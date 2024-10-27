@@ -4,6 +4,7 @@ return {
 	config = function()
 		-- vim.cmd([[colorscheme github_dark]])
 		require("lualine").setup({
+			theme = 'OceanicNext',
 			winbar = {
 				lualine_a = {},
 				lualine_b = {},

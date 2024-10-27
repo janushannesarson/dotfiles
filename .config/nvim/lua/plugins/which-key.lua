@@ -11,6 +11,9 @@ return {
 			{ '<leader>t', group = '[T]oggle' },
 			{ '<leader>h', group = 'Git [H]unk', mode = { 'n' } },
 		},
+		delay = function(ctx)
+			return 0
+		end,
 	},
 	keys = {
 		{
