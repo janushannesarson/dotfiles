@@ -1,11 +1,18 @@
 layout {
-    pane size=1 borderless=true {
-        plugin location="tab-bar"
+	default_tab_template hide_floating_panes=true {
+        // the default zellij tab-bar and status bar plugins
+        pane size=1 borderless=true {
+            plugin location="zellij:tab-bar"
+        }
+        children
+        pane size=2 borderless=true {
+            plugin location="zellij:status-bar"
+        }
     }
-    pane {
-
+	tab {
+		pane
+		floating_panes {
+			pane command="lazygit"
+		}
 	}
-    pane size=2 borderless=true {
-        plugin location="status-bar"
-    }
 }

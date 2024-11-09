@@ -17,7 +17,7 @@
   "update.showReleaseNotes": false,
   "zenMode.hideLineNumbers": false,
   "zenMode.hideStatusBar": false,
-  "editor.lineNumbers": "relative",
+  // "editor.lineNumbers": "relative",
   "workbench.panel.opensMaximized": "always",
 
   "vim.leader": "<Space>",
@@ -136,5 +136,8 @@
   "editor.stickyScroll.enabled": false,
   "editor.cursorSurroundingLines": 10,
   "workbench.colorTheme": "Theme",
-  "workbench.activityBar.location": "hidden"
+  "workbench.activityBar.location": "hidden",
+  "[html]": {
+    "editor.defaultFormatter": "vscode.html-language-features"
+  }
 }
