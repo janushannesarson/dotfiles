@@ -9,10 +9,21 @@ layout {
             plugin location="zellij:status-bar"
         }
     }
+	tab focus=true{
+		
+		
+		pane {
+			command "nvim"
+			args "."
+		}
+	}
 	tab {
-		pane
-		floating_panes {
-			pane command="lazygit"
+		pane {
+		}
+	}
+	tab {
+		pane {
+			command "lazygit"
 		}
 	}
 }

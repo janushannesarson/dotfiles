@@ -20,7 +20,6 @@ else
     # If no argument was provided, interactively choose a directory
 	selected_path=$((
 		find ~/repos -mindepth 1 -maxdepth 1 -type d;
-		echo /etc/nixos/;
 	) | fzf)
 fi
 
