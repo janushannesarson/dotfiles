@@ -22,5 +22,7 @@
   "telescope-ui-select.nvim": { "branch": "master", "commit": "6e51d7da30bd139a6950adf2a47fda6df9fa06d2" },
   "telescope.nvim": { "branch": "0.1.x", "commit": "a0bbec21143c7bc5f8bb02e0005fa0b982edc026" },
   "vim-vsnip": { "branch": "master", "commit": "02a8e79295c9733434aab4e0e2b8c4b7cea9f3a9" },
-  "which-key.nvim": { "branch": "main", "commit": "68e37e12913a66b60073906f5d3f14dee0de19f2" }
+  "vim-zellij-navigator.nvim": { "branch": "main", "commit": "380d6d55d13fe60f91ac0c8303749c2c12fdc85a" },
+  "which-key.nvim": { "branch": "main", "commit": "68e37e12913a66b60073906f5d3f14dee0de19f2" },
+  "zellij-nav.nvim": { "branch": "main", "commit": "1d6657d8b8e1f6bbb275a48bc96092b248b8f522" }
 }

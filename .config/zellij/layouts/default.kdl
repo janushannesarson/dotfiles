@@ -10,15 +10,9 @@ layout {
         }
     }
 	tab focus=true{
-		
-		
 		pane {
-			command "nvim"
-			args "."
-		}
-	}
-	tab {
-		pane {
+			command "fish"
+			args "-c" "direnv exec . nvim ."
 		}
 	}
 	tab {
